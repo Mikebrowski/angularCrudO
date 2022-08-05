@@ -1,0 +1,41 @@
+<h2>Products</h2>
+<div *ngFor="let product of products">
+    <!-- the a tittle is a build in function into angular to allow syntax inside a hmtl state simillar to the <?php $whateveryou ?> -->
+    <h3><a title="products.name +'details'"
+        
+        [routerLink]="['/products', product.id]"
+        > 
+        
+        
+        {{product.name}}
+
+    </a></h3> 
+
+
+    <p *ngIf="product.description">  
+        Description: {{ product.description }}
+    </p>
+    <button type="button" (click)="PRESSTHISFORFUN()"> Share</button>
+
+    <p *ngIf=" product.price > 700 "><button type="button" >Notify</button> price {{product.price | currency}}</p>
+
+    <!--
+        The RouterLink directive helps you customize the anchor element. In this case, the route, or URL, contains one fixed segment, 
+        /products. 
+        The final segment is variable, inserting the id property of the current product. 
+        For example, the URL for a product with an id of 1 would be similar to https://getting-started-myfork.stackblitz.io/products/1.
+
+
+
+
+    -->
+
+
+
+
+    
+</div>
+
+<app-product-alert   [product]="product" (notify)="onNotify()" ></app-product-alert>
+
+

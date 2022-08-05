@@ -1,0 +1,5 @@
+
+<div *ngFor="let product">
+<p *ngIf=" product.price > 700 "><button type="button" >Notify</button> price {{product.price | currency}}</p>
+</div>
+
